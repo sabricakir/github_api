@@ -25,17 +25,17 @@ class UI {
                     <div id="bio">${user.bio}</div>
                 </div>
                 <div class="col-md-8">
-                    <button class="btn btn-secondary">
+                    <button class="btn btn-warning">
                         Followers <span class="badge badge-light">${user.followers}</span>
                     </button>
                     <button class="btn btn-info">
                         Following <span class="badge badge-light">${user.following}</span>
                     </button>
-                    <button class="btn btn-danger">
+                    <button class="btn btn-success">
                         Repos Count <span class="badge badge-light">${user.public_repos}</span>
                     </button>
                     <hr>
-                    <li class="list-group">
+                    <li class="list-group d-flex">
                         <li class="list-group-item border-0 d-flex align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-auto" style="width: 30px;">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
@@ -67,15 +67,15 @@ class UI {
     repos.forEach(repo => {
       this.repoDiv.innerHTML += `
             <div class="mb-2 card-body">
-                <div class="row">
+                <div class="row justify-content-between align-items-center">
                     <div class="col-md-2">
                         <a href="${repo.html_url}" target="_blank" id = "repoName">${repo.name}</a>
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-secondary">
+                        <button class="btn btn-danger">
                             Stars <span class="badge badge-light" id="repoStar">${repo.stargazers_count}</span>
                         </button>
-                        <button class="btn btn-info">
+                        <button class="btn btn-dark">
                             Forks <span class="badge badge-light" id ="repoFork">${repo.forks_count}</span>
                         </button>
                     </div>
