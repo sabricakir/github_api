@@ -94,18 +94,26 @@ class UI {
     }, 2000);
   }
 
-  addSearchedUserToUI(username) {
+  addSearchedUserToUI(username, skipUserCheck = true) {
     let users = Storage.getSearchedUsersFromStorage();
 
-    if (users.indexOf(username) === -1) {
+    if (users.indexOf(username) === -1 || skipUserCheck === false) {
       const li = document.createElement("li");
       li.className = "list-group-item";
       li.textContent = username;
+      li.style.cursor = "pointer";
+      this.addAutoCompleteEvent(li, username);
       this.lastUsers.appendChild(li);
     }
   }
 
   clearAllSearchedFromUI() {
     this.lastUsers.innerHTML = "";
+  }
+
+  addAutoCompleteEvent(item, username){
+    item.addEventListener('click', () => {
+        nameInput.value = username;
+    });
   }
 }

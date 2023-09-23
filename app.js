@@ -43,9 +43,7 @@ function clearAllSearched(){
 
 function getAllSearched(){
     let users = Storage.getSearchedUsersFromStorage();
-    let result = '';
     users.forEach(user => {
-        result += `<li class="list-group-item">${user}</li>`;
+        ui.addSearchedUserToUI(user, false);
     });
-    lastUsers.innerHTML = result;
 }
